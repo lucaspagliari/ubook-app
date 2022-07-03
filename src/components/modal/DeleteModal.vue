@@ -13,8 +13,8 @@ import BaseModal from "./BaseModal.vue";
       </div>
       <divider />
       <div class="h-14 flex items-center justify-end gap-4 p-4">
-        <button>Cancelar</button>
-        <button>Salvar</button>
+        <btn>Cancelar</btn>
+        <btn>Salvar</btn>
       </div>
     </div>
   </base-modal>

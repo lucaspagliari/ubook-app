@@ -17,8 +17,8 @@ import TextField from "@/components/inputs/TextField.vue";
       </div>
       <divider />
       <div class="h-14 flex items-center justify-end gap-4 p-4">
-        <button>Cancelar</button>
-        <button>Salvar</button>
+        <btn text>Cancelar</btn>
+        <btn>Salvar</btn>
       </div>
     </div>
   </base-modal>

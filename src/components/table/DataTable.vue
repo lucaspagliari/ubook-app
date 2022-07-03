@@ -1,6 +1,4 @@
 <script setup lang="ts">
-/* eslint-disable */
-import { defineProps } from "vue";
 import type { PropType } from "vue";
 import DeleteIcon from "@/components/icons/DeleteIcon.vue";
 import EditIcon from "@/components/icons/EditIcon.vue";
@@ -9,7 +7,6 @@ type HeaderType = {
   text: string;
   value: string;
 };
-
 defineProps({
   headers: Array as PropType<HeaderType[]>,
   items: Array as PropType<any[]>,

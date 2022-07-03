@@ -1,5 +1,4 @@
 <script setup lang="ts">
-/* eslint-disable */
 import LogoIcon from "./components/icons/LogoIcon.vue";
 import SearchField from "./components/inputs/SearchField.vue";
 import AddBtn from "./components/buttons/AddBtn.vue";
@@ -28,13 +27,19 @@ const items = [
     <div class="flex items-center gap-14">
       <LogoIcon />
       <add-btn>Criar contato</add-btn>
-      <SearchField class="flex-grow" placeholder="Buscar..." />
+      <SearchField
+        class="flex-grow"
+        placeholder="Buscar..."
+      />
     </div>
 
-    <!-- <ContactModal /> -->
+    <ContactModal />
     <!-- <DeleteModal /> -->
     <main class="mt-4">
-      <DataTable :headers="headers" :items="items"></DataTable>
+      <DataTable
+        :headers="headers"
+        :items="items"
+      />
       <EmptyContact />
     </main>
   </div>

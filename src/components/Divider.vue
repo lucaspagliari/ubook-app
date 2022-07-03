@@ -1,3 +1,3 @@
 <template>
-  <hr class="w-full border-gray" />
+  <hr class="w-full border-gray">
 </template>

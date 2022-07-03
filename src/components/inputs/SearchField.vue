@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import SearchIcon from "@/components/icons/SearchIcon.vue";
-import { defineProps } from "vue";
-/* eslint-disable */
 const props = defineProps({
   placeholder: String,
   type: { type: String },
@@ -13,7 +11,7 @@ const props = defineProps({
     <input
       v-bind="props"
       class="flex-auto text-bluey-gray  bg-pale-gray h-8 p-2 rounded"
-    />
+    >
     <SearchIcon class="h-4 w-4 " />
   </div>
 </template>
