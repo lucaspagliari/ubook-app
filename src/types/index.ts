@@ -1,0 +1,10 @@
+export interface Contact {
+  name: string;
+  email: string;
+  number: string;
+}
+
+export interface Header {
+  value: string;
+  text: string;
+}

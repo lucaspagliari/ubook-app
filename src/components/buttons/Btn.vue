@@ -27,6 +27,6 @@ function handleClick() {
     :class="[btnStyle, 'px-4 py-2 text-sm font-medium']"
     @click.prevent="handleClick"
   >
-    <slot />
+    <slot></slot>
   </button>
 </template>

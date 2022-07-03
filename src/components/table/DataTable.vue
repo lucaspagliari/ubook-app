@@ -1,14 +1,9 @@
 <script setup lang="ts">
+import { Header } from "@/types";
 import type { PropType } from "vue";
-import DeleteIcon from "@/components/icons/DeleteIcon.vue";
-import EditIcon from "@/components/icons/EditIcon.vue";
 
-type HeaderType = {
-  text: string;
-  value: string;
-};
 defineProps({
-  headers: Array as PropType<HeaderType[]>,
+  headers: Array as PropType<Header[]>,
   items: Array as PropType<any[]>,
 });
 
@@ -46,6 +41,7 @@ function genRandomHexColor(): string {
           </template>
           {{ item[header.value] }}
         </td>
+        <slot name="options"></slot>
       </tr>
     </tbody>
   </table>
