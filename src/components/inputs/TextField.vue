@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const emit = defineEmits(["update:modelValue"]);
 
-const props = defineProps({
+defineProps({
   placeholder: String,
   type: { type: String, default: "text" },
   label: String,
@@ -15,12 +15,14 @@ const updateModelValue = (event: any) => {
 </script>
 
 <template>
-  <div class="px-2 rounded">
+  <div class="px-2">
     <label :for="name" class="text-sm">{{ label }}</label>
     <input
       @input="updateModelValue"
       :name="name"
-      v-bind="props"
+      :placeholder="placeholder"
+      :type="type"
+      :value="modelValue"
       class="w-full border border-gray h-8 p-2 rounded"
     />
   </div>

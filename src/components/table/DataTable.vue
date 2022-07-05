@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Header } from "@/types";
 import type { PropType } from "vue";
-
+import stc from "string-to-color";
 defineProps({
   headers: Array as PropType<Header[]>,
   items: Array as PropType<any[]>,
@@ -11,8 +11,8 @@ function getInitial(item: any): string {
   return String(item.name).charAt(0).toUpperCase();
 }
 
-function genRandomHexColor(): string {
-  return "#" + (((1 << 24) * Math.random()) | 0).toString(16);
+function genHexColor(item: any): string {
+  return stc(getInitial(item));
 }
 </script>
 <template>
@@ -25,24 +25,42 @@ function genRandomHexColor(): string {
       </tr>
     </thead>
     <tbody>
-      <tr
-        v-for="(item, index) in items"
-        :key="item.name + index"
-        class="h-10 border border-pale-gray hover:bg-light-pink"
-      >
-        <td v-for="header in headers" :key="header.value" class="dark-text p-2">
-          <template v-if="header.value === 'name'">
-            <div
-              :style="{ backgroundColor: genRandomHexColor() }"
-              class="w-6 h-6 text-center inline-block text-white rounded-full mr-4"
-            >
-              {{ getInitial(item) }}
-            </div>
-          </template>
-          {{ item[header.value] }}
-        </td>
-        <slot name="options"></slot>
-      </tr>
+      <transition-group name="color" mode="out-in">
+        <tr
+          v-for="item in items"
+          :key="item.id"
+          class="h-10 border border-pale-gray hover:bg-light-pink"
+        >
+          <td
+            v-for="header in headers"
+            :key="header.value"
+            class="dark-text p-2"
+          >
+            <template v-if="header.value === 'name'">
+              <div
+                :style="{ backgroundColor: genHexColor(item) }"
+                class="w-6 h-6 text-center inline-block text-white rounded-full mr-4"
+              >
+                {{ getInitial(item) }}
+              </div>
+            </template>
+            {{ item[header.value] }}
+          </td>
+          <slot name="options" :item="item"></slot>
+        </tr>
+      </transition-group>
     </tbody>
   </table>
 </template>
+<style>
+.color-enter-active {
+  transition: all 10s ease-in-out;
+  opacity: 1;
+  @apply bg-light-pink;
+}
+
+.color-leave-active {
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+</style>
