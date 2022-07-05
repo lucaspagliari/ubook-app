@@ -11,15 +11,18 @@ import EditIcon from "@/components/icons/EditIcon.vue";
 import { onMounted, reactive, computed, ref } from "vue";
 import { Contact, Header } from "./types";
 
-const state = reactive<{ contacts: Contact[]; selected: Contact }>({
+const state = reactive<{
+  contacts: Contact[];
+  selected: Contact;
+  highlights: string[];
+}>({
   contacts: [],
   selected: { id: "", email: "", name: "", number: "" },
+  highlights: [],
 });
 
 onMounted(() => {
-  const data = localStorage.getItem("contacts");
-  state.contacts = data ? JSON.parse(data) : [];
-  showDataTable.value = !!state.contacts.length;
+  loadLocalData();
 });
 
 // Modal logic
@@ -33,10 +36,12 @@ const handleAddBtn = () => {
 };
 const addContact = (contact: Contact) => {
   showDataTable.value = true;
+  state.contacts.push(contact);
+  state.highlights.push(contact.id);
+  saveLocal();
   setTimeout(() => {
-    state.contacts.push(contact);
-    saveLocal();
-  }, 10);
+    state.highlights = state.highlights.filter((id) => id !== contact.id);
+  }, 10000);
 };
 
 const handleDeleteBtn = (item: Contact) => {
@@ -63,8 +68,15 @@ const editContact = (edited: Contact) => {
   });
   saveLocal();
 };
+// debug purporse
 const saveLocal = () => {
   localStorage.setItem("contacts", JSON.stringify(state.contacts));
+};
+// debug purporse
+const loadLocalData = () => {
+  const data = localStorage.getItem("contacts");
+  state.contacts = data ? JSON.parse(data) : [];
+  showDataTable.value = !!state.contacts.length;
 };
 
 // DataTable Logic
@@ -113,6 +125,7 @@ const headers: Header[] = [
         v-if="showDataTable"
         :headers="headers"
         :items="contactsResult"
+        :highlights="state.highlights"
       >
         <template #options="{ item }">
           <td>

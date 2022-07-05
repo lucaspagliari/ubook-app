@@ -16,7 +16,7 @@ const handleDelete = () => {
 </script>
 <template>
   <base-modal v-show="modelValue">
-    <div class="bg-white rounded-2xl text-dark w-96">
+    <div class="bg-white rounded-2xl text-dark w-72 md:w-96">
       <div class="h-12 flex items-center px-4">
         <h2 class="text-lg">Excluir Contato</h2>
       </div>

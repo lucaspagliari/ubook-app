@@ -3,9 +3,9 @@
     <div
       tabindex="-1"
       aria-hidden="true"
-      class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full bg-black bg-opacity-40 flex justify-center items-center"
+      class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full inset-0 h-modal h-full bg-black bg-opacity-40 flex justify-center items-center"
     >
-      <div class="relative h-full md:h-auto shadow-2xl">
+      <div class="relative h-auto shadow-2xl">
         <slot></slot>
       </div>
     </div>

@@ -56,7 +56,7 @@ const handleSave = () => {
 
 <template>
   <base-modal v-show="modelValue" class="contact-modal">
-    <div class="bg-white rounded-2xl text-dark w-96">
+    <div class="bg-white rounded-2xl text-dark w-72 md:w-96">
       <div class="h-12 flex items-center px-4">
         <h2 class="text-lg">Contato</h2>
       </div>
