@@ -1,16 +1,11 @@
 <script setup lang="ts">
 import { Header } from "@/types";
-import type { PropType } from "vue";
 import stc from "string-to-color";
 defineProps<{
   headers: Header[];
   items: any[];
   highlights: string[];
-}>(/* {
-  headers: Array as PropType<Header[]>,
-  items: Array as PropType<any[]>,
-  highlights: Array
-} */);
+}>();
 
 function getInitial(item: any): string {
   return String(item.name).charAt(0).toUpperCase();

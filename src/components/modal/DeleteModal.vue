@@ -2,9 +2,9 @@
 import BaseModal from "./BaseModal.vue";
 
 const emit = defineEmits(["update:modelValue", "delete"]);
-defineProps({
-  modelValue: Boolean,
-});
+defineProps<{
+  modelValue: boolean;
+}>();
 
 const handleCancel = () => {
   emit("update:modelValue", false);

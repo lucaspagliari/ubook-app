@@ -3,11 +3,11 @@ import SearchIcon from "@/components/icons/SearchIcon.vue";
 
 const emit = defineEmits(["update:modelValue"]);
 
-const props = defineProps({
-  placeholder: String,
-  type: String,
-  modelValue: String,
-});
+const props = defineProps<{
+  placeholder?: string;
+  type?: string;
+  modelValue?: string;
+}>();
 
 const updateModelValue = (event: any) => {
   emit("update:modelValue", event.target.value);

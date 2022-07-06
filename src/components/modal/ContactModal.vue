@@ -7,13 +7,11 @@ import { Contact } from "@/types";
 const emit = defineEmits([
   "update:modelValue",
   "update:contact",
-  "edit",
   "save",
 ]);
 const props = defineProps<{
   contact?: Contact;
-  modelValue: boolean;
-  edit?: boolean;
+  modelValue?: boolean;
 }>();
 
 watch(
@@ -44,7 +42,7 @@ const handleCancel = () => {
 const handleSave = () => {
   const { form } = state;
 
-  if (props.edit && props.contact) {
+  if (props.contact) {
     emit("update:contact", { id: props.contact.id, ...form });
   }
 

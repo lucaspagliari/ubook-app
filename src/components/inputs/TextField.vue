@@ -1,11 +1,15 @@
 <script setup lang="ts">
 const emit = defineEmits(["update:modelValue"]);
 
-defineProps({
-  placeholder: String,
-  type: { type: String, default: "text" },
-  label: String,
-  modelValue: String,
+interface Props {
+  placeholder?: string;
+  type: string;
+  modelValue?: string;
+  label?: string;
+}
+
+withDefaults(defineProps<Props>(), {
+  type: "text",
 });
 
 const name = ((1 << 24) * Math.random()).toString(16);
