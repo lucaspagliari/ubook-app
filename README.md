@@ -1,29 +1,34 @@
-# ubook-app
+# Ubook App
+App in production: [link](ubook-app.vercel.app)
 
-## Project setup
+## Steps to run 
+### NPM 
 ```
 npm install
+npm run dev
+```
+```
+npm run test:unit
 ```
 
-### Compiles and hot-reloads for development
+### YARN 
 ```
-npm run serve
+yarn install
+yarn dev
+```
+
+```
+yarn test:unit
 ```
 
 ### Compiles and minifies for production
 ```
 npm run build
+yarn build
 ```
 
-### Run your unit tests
-```
-npm run test:unit
-```
+### Technologies used:
+- Vue 3 + Typescript
+- TailwindCSS
+- Jest
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
